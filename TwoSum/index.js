@@ -24,17 +24,33 @@
  * @return {number[]}
  */
 
-var twoSum = function(nums, target) {
-    let output = []
-    for(let i = 0; i < nums.length; i++) {
-        for(let j = i+1; j < nums.length; j++) {
-            if(nums[i] + nums[j] === target) {
-                output = [i, j]
-            }
-        }
-    }
+// ! Cara Satu
+// var twoSum = function(nums, target) {
+//     let output = []
+//     for(let i = 0; i < nums.length; i++) {
+//         for(let j = i+1; j < nums.length; j++) {
+//             if(nums[i] + nums[j] === target) {
+//                 output = [i, j]
+//             }
+//         }
+//     }
 
-    return output
+//     return output
+// };
+
+// ! Cara dua
+var twoSum = function(nums, target) {
+    let mp = new Map()
+    
+    for(let i = 0; i < nums.length; i++) {
+        let diff = target - nums[i]
+
+        if(mp.has(diff)) {
+            return [mp.get(diff), i]
+        }
+
+        mp.set(nums[i], i)
+    }
 };
 
 console.log(twoSum([2,7,11,15], 9));  // Must result [0, 1]
