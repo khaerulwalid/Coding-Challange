@@ -16,7 +16,7 @@ let kidsWithCandies = function(candies, extraCandies) {
             }
         }
 
-        output.push(result)
+        output[i] = result
     }
 
     return output;
